@@ -49,5 +49,5 @@ app.post('/', async (req, res) => {
 })
 
 app.listen(process.env.PGPORT || 3001, () => {
-    console.log(`LISTENING ON PORT ${PORT}`)
+    console.log(`LISTENING`)
 })
