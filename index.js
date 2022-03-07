@@ -4,7 +4,9 @@ require("dotenv").config();
 const app = express();
 const { Client } = require('pg')
 
-app.use(cors())
+app.use(cors({
+    origin: 'https://mycorsproxy-jvo978.herokuapp.com/https://react-weather-app-api-jvo978.herokuapp.com'
+}))
 app.use(express.json())
 
 const db = new Client({
