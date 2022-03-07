@@ -13,7 +13,9 @@ const db = new Client({
     port: "5432",
 });
 
-app.use(cors())
+app.use(cors({
+    origin: "https://romantic-archimedes-846fb7.netlify.app/",
+}))
 
 app.use(express.json())
 
