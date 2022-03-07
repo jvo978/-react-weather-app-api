@@ -1,6 +1,6 @@
-require("dotenv").config();
 const express = require('express');
 const cors = require('cors')
+require("dotenv").config();
 const app = express();
 const { Client } = require('pg')
 const PORT = 3001;
@@ -13,7 +13,11 @@ const db = new Client({
     port: process.env.PGPORT,
 });
 
-app.use(cors());
+app.use(cors({
+    origin: "https://romantic-archimedes-846fb7.netlify.app",
+    methods: ["GET", "POST"]
+}))
+
 app.use(express.json())
 
 db.connect()
