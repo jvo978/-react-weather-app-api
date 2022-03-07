@@ -5,6 +5,12 @@ const app = express();
 const { Client } = require('pg')
 const PORT = 3001;
 
+app.use(cors({
+    origin: "https://romantic-archimedes-846fb7.netlify.app/",
+}))
+
+app.use(express.json())
+
 const db = new Client({
     user: "eexzwaxgmjextu",
     host: "ec2-18-210-191-5.compute-1.amazonaws.com",
@@ -12,12 +18,6 @@ const db = new Client({
     password: "4c7a3ccd1cac9992f77c72e3272fd234d549ad4af9897702efff246f068a08f8",
     port: "5432",
 });
-
-app.use(cors({
-    origin: "https://romantic-archimedes-846fb7.netlify.app/",
-}))
-
-app.use(express.json())
 
 db.connect()
 
