@@ -6,11 +6,11 @@ const { Client } = require('pg')
 const PORT = 3001;
 
 const db = new Client({
-    user: process.env.PGUSER,
-    host: process.env.PGHOST,
-    database: process.env.PGDATABASE,
-    password: process.env.PGPASSWORD,
-    port: process.env.PGPORT,
+    user: "eexzwaxgmjextu",
+    host: "ec2-18-210-191-5.compute-1.amazonaws.com",
+    database: "d3qro56k8tporq",
+    password: "4c7a3ccd1cac9992f77c72e3272fd234d549ad4af9897702efff246f068a08f8",
+    port: "5432",
 });
 
 app.use(cors())
@@ -50,6 +50,6 @@ app.post('/', async (req, res) => {
     }
 })
 
-app.listen(PORT, () => {
-    console.log(`LISTENING ON PORT ${PORT}`)
+app.listen(process.env.PORT || 3001, () => {
+    console.log(`LISTENING ON PORT ${3001}`)
 })
