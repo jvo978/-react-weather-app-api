@@ -13,9 +13,7 @@ const db = new Client({
     port: process.env.PGPORT,
 });
 
-app.use(cors({
-    origin: ["https://romantic-archimedes-846fb7.netlify.app/"]
-}));
+app.use(cors());
 app.use(express.json())
 
 db.connect()
