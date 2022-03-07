@@ -3,7 +3,6 @@ const cors = require('cors')
 require("dotenv").config();
 const app = express();
 const { Client } = require('pg')
-const PORT = 3001;
 
 app.use(cors())
 app.use(express.json())
@@ -14,7 +13,6 @@ const db = new Client({
     database: process.env.PGDATABASE,
     password: process.env.PGPASSWORD,
     port: process.env.PGPORT,
-    ssl: true
 });
 
 db.connect()
@@ -50,6 +48,6 @@ app.post('/', async (req, res) => {
     }
 })
 
-app.listen(PORT, () => {
+app.listen(process.env.PGPORT || 3001, () => {
     console.log(`LISTENING ON PORT ${PORT}`)
 })
