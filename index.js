@@ -48,7 +48,6 @@ app.post('/', async (req, res) => {
     }
 })
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-    console.log(`Our app is running on port ${ PORT }`);
+app.listen(3001, () => {
+    console.log(`App is running on port 3001`);
 });
