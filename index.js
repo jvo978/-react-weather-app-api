@@ -8,15 +8,11 @@ app.use(cors())
 app.use(express.json())
 
 const db = new Client({
-    // connectionString: process.env.DATABASE_URL,
-    // ssl: {
-    //   rejectUnauthorized: false
-    // }
-    user: 'wqinpmleynlmde',
-    host: 'ec2-34-231-183-74.compute-1.amazonaws.com',
-    database: 'do0qrk4jmaoh9',
-    password: 'c2d6083476ebea1ba5babc231006ef09680df5170a06946a4989fc78a6919901',
-    port: 5432,
+    user: process.env.PGUSER,
+    host: process.env.PGHOST,
+    database: process.env.PGDATABASE,
+    password: process.env.PGPASSWORD,
+    port: process.env.PGPORT,
 });
 
 db.connect()
