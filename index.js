@@ -48,6 +48,25 @@ app.post('/', async (req, res) => {
     }
 })
 
+app.delete('/:id', async (req, res) => {
+    const { id } = req.params
+    const deleted = await db.query('DELETE FROM history WHERE history_id = $1', [id])
+    if (!deleted || deleted.rowCount < 1) {
+        res.json({err: 'Problem deleting selected search from database'})
+    } else {
+        res.json(deleted)
+    }
+})
+
+app.delete('/', async (req, res) => {
+    const deletedAll = await db.query('DELETE FROM history')
+    if (!deletedAll || deletedAll.rowCount < 1) {
+        res.json({err: 'Problem deleting all searches from database'})
+    } else {
+        res.json(deletedAll)
+    }
+})
+
 app.listen(3001, () => {
     console.log(`App is running on port 3001`);
 });
